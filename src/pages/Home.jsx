@@ -9,7 +9,7 @@ const QUERY_URL = 'trending/movie/week';
 const Home = () => {
   const [error, setError] = useState(null);
   const [topMovies, setTopMovies] = useState([]);
-
+  const [status, setStatus] = useState('');
   const location = useLocation();
 
   useEffect(() => {
@@ -21,8 +21,12 @@ const Home = () => {
         }
         setTopMovies(results);
       })
-      .catch(error => setError(error));
+      .catch(error => setError(error), setStatus('rejected'));
   }, []);
+
+  if (status === 'rejected') {
+    return <h2>{`Помилка: ${error.message}`}</h2>;
+  }
 
   return (
     <>
