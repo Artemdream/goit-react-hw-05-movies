@@ -1,5 +1,4 @@
 import fetchQuery from 'Api/API';
-// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ListCast, ItemCast, ItemCastText, ImgCast } from './Cast.styled';
@@ -52,12 +51,3 @@ const Cast = () => {
 };
 
 export default Cast;
-
-// Cast.propTypes = {
-//   cast: PropTypes.shape({
-//     original_name: PropTypes.string.isRequired,
-//     profile_path: PropTypes.string.isRequired,
-//     character: PropTypes.string.isRequired,
-//     id: PropTypes.number.isRequired,
-//   }).isRequired,
-// };

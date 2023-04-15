@@ -1,5 +1,4 @@
 import fetchQuery from 'Api/API';
-// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -48,9 +47,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// Home.propTypes = {
-//   topMovies: PropTypes.array,
-//   id: PropTypes.number,
-//   title: PropTypes.string,
-// };

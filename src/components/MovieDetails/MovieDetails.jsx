@@ -1,5 +1,4 @@
 import fetchQuery from 'Api/API';
-// import PropTypes from 'prop-types';
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
@@ -83,14 +82,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-// MovieDetails.propTypes = {
-//   currentMovie: PropTypes.shape({
-//     original_title: PropTypes.string.isRequired,
-//     poster_path: PropTypes.string.isRequired,
-//     overview: PropTypes.string.isRequired,
-//     genres: PropTypes.array.isRequired,
-//     genre: PropTypes.array.isRequired,
-//     id: PropTypes.number.isRequired,
-//   }),
-// };

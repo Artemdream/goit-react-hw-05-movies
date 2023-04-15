@@ -1,5 +1,4 @@
 import fetchQuery from 'Api/API';
-// import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { InputSearch } from './Movies.styled';
@@ -54,10 +53,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-// Movies.propTypes = {
-//   searchMovies: PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//   }).isRequired,
-// };

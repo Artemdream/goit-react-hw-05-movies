@@ -22,7 +22,6 @@ const Reviews = () => {
 
   return (
     <div>
-      {console.log(movieReviews)}
       {movieReviews.length === 0 ? (
         'We don`t have any reviews for this movie'
       ) : (
