@@ -1,5 +1,5 @@
 import fetchQuery from 'Api/API';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ListCast, ItemCast, ItemCastText, ImgCast } from './Cast.styled';
@@ -8,7 +8,6 @@ import defaultImg from '../../Images/default-avatar.png';
 //* Інформація про акторський склад (Рендериться на сторінці MovieDetails)
 
 const Cast = () => {
-  const [error, setError] = useState(null);
   const [cast, setCast] = useState([]);
 
   const { movieId } = useParams();
@@ -21,7 +20,7 @@ const Cast = () => {
       .then(res => {
         setCast(res.cast);
       })
-      .catch(error => setError(error));
+      .catch(error => console.log(error));
   }, [QUERY_URL]);
 
   return (
@@ -54,11 +53,11 @@ const Cast = () => {
 
 export default Cast;
 
-Cast.propTypes = {
-  cast: PropTypes.shape({
-    original_name: PropTypes.string.isRequired,
-    profile_path: PropTypes.string.isRequired,
-    character: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-  }).isRequired,
-};
+// Cast.propTypes = {
+//   cast: PropTypes.shape({
+//     original_name: PropTypes.string.isRequired,
+//     profile_path: PropTypes.string.isRequired,
+//     character: PropTypes.string.isRequired,
+//     id: PropTypes.number.isRequired,
+//   }).isRequired,
+// };

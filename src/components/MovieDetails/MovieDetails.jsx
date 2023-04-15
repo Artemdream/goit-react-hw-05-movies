@@ -1,5 +1,5 @@
 import fetchQuery from 'Api/API';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
@@ -13,7 +13,6 @@ import defaultImgMovie from '../../Images/movie.png';
 import { useRef } from 'react';
 
 const MovieDetails = () => {
-  const [error, setError] = useState(null);
   const [currentMovie, setCurrentMovie] = useState([]);
 
   const { movieId } = useParams();
@@ -28,7 +27,7 @@ const MovieDetails = () => {
       .then(res => {
         setCurrentMovie(res);
       })
-      .catch(error => setError(error));
+      .catch(error => console.log(error));
   }, [QUERY_URL]);
 
   const { poster_path, original_title, overview, genres, vote_average } =
@@ -85,13 +84,13 @@ const MovieDetails = () => {
 
 export default MovieDetails;
 
-MovieDetails.propTypes = {
-  currentMovie: PropTypes.shape({
-    original_title: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
-    genre: PropTypes.array.isRequired,
-    id: PropTypes.number.isRequired,
-  }),
-};
+// MovieDetails.propTypes = {
+//   currentMovie: PropTypes.shape({
+//     original_title: PropTypes.string.isRequired,
+//     poster_path: PropTypes.string.isRequired,
+//     overview: PropTypes.string.isRequired,
+//     genres: PropTypes.array.isRequired,
+//     genre: PropTypes.array.isRequired,
+//     id: PropTypes.number.isRequired,
+//   }),
+// };

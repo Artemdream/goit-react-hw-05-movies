@@ -1,5 +1,5 @@
 import fetchQuery from 'Api/API';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { InputSearch } from './Movies.styled';
@@ -8,7 +8,6 @@ import { InputSearch } from './Movies.styled';
 const QUERY_URL = 'search/movie';
 
 const Movies = () => {
-  const [error, setError] = useState(null);
   const [searchMovies, setSearchMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({});
 
@@ -20,7 +19,7 @@ const Movies = () => {
       .then(res => {
         setSearchMovies(res.results);
       })
-      .catch(error => setError(error));
+      .catch(error => console.log(error));
   }, [searchParams]);
 
   const updateSearchParams = ({ target: { value } }) => {
@@ -41,8 +40,8 @@ const Movies = () => {
         <div>
           <ul>
             {searchMovies.map(({ id, title }) => (
-              <li>
-                <Link key={id} to={`${id}`} state={location}>
+              <li key={id}>
+                <Link to={`${id}`} state={location}>
                   <p>{title}</p>
                 </Link>
               </li>
@@ -56,9 +55,9 @@ const Movies = () => {
 
 export default Movies;
 
-Movies.propTypes = {
-  searchMovies: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-};
+// Movies.propTypes = {
+//   searchMovies: PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//   }).isRequired,
+// };

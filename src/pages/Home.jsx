@@ -1,15 +1,14 @@
 import fetchQuery from 'Api/API';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-//* запит згідно з API
+// запит згідно з API
 const QUERY_URL = 'trending/movie/week';
 
 const Home = () => {
-  const [error, setError] = useState(null);
   const [topMovies, setTopMovies] = useState([]);
-  const [status, setStatus] = useState('');
+
   const location = useLocation();
 
   useEffect(() => {
@@ -21,17 +20,12 @@ const Home = () => {
         }
         setTopMovies(results);
       })
-      .catch(error => setError(error), setStatus('rejected'));
+      .catch(error => console.log(error));
   }, []);
-
-  if (status === 'rejected') {
-    return <h2>{`Помилка: ${error.message}`}</h2>;
-  }
 
   return (
     <>
       <h1>Trending today</h1>
-
       {topMovies.length !== 0 && (
         <ul>
           {topMovies.map(({ id, title }) => {
@@ -55,8 +49,8 @@ const Home = () => {
 
 export default Home;
 
-Home.propTypes = {
-  topMovies: PropTypes.array,
-  id: PropTypes.number,
-  title: PropTypes.string,
-};
+// Home.propTypes = {
+//   topMovies: PropTypes.array,
+//   id: PropTypes.number,
+//   title: PropTypes.string,
+// };
