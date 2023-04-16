@@ -1,7 +1,7 @@
 import fetchQuery from 'Api/API';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { InputSearch } from './Movies.styled';
+import { Button, InputSearch } from './Movies.styled';
 
 //* запит згідно з API
 const QUERY_URL = 'search/movie';
@@ -14,26 +14,28 @@ const Movies = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (movieName === '') return;
+
     fetchQuery(QUERY_URL, searchParams)
       .then(res => {
         setSearchMovies(res.results);
       })
       .catch(error => console.log(error));
-  }, [searchParams]);
+  }, [movieName, searchParams]);
 
-  const updateSearchParams = ({ target: { value } }) => {
-    const searchOpt = value === '' ? {} : { query: value };
+  const submitForm = e => {
+    e.preventDefault();
+    const value = e.target.search.value;
+    const searchOpt = value.trim() === '' ? {} : { query: value };
     setSearchParams(searchOpt);
   };
 
   return (
     <div>
-      <InputSearch
-        type="text"
-        onChange={updateSearchParams}
-        value={movieName}
-        placeholder="Search movies"
-      />
+      <form onSubmit={submitForm}>
+        <InputSearch type="text" name="search" placeholder="Search movies" />
+        <Button type="submit">Search</Button>
+      </form>
 
       {searchMovies.length !== 0 && (
         <div>

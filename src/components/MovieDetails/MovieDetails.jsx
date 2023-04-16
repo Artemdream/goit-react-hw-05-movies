@@ -5,7 +5,6 @@ import {
   StyledNavLink,
   Section,
   BackLink,
-  ItemLink,
   ListLink,
 } from './MovieDetails.styled';
 import defaultImgMovie from '../../Images/movie.png';
@@ -64,12 +63,12 @@ const MovieDetails = () => {
           <div>
             <p>Additional Information</p>
             <ListLink>
-              <ItemLink>
+              <li>
                 <StyledNavLink to="cast">Cast</StyledNavLink>
-              </ItemLink>
-              <ItemLink>
+              </li>
+              <li>
                 <StyledNavLink to="reviews">Reviews</StyledNavLink>
-              </ItemLink>
+              </li>
             </ListLink>
           </div>
         </div>

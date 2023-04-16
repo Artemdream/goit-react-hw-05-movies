@@ -12,12 +12,15 @@ export const Main = styled.main`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: black;
-  font-size: 24px;
   padding: 10px;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
+  color: black;
 
   &.active {
-    color: orange;
+    background-color: orange;
+    color: #fff;
   }
 `;

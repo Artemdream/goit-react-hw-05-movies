@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 
 const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
-
   const { movieId } = useParams();
 
   //* запит згідно з API

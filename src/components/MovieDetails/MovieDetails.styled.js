@@ -14,26 +14,28 @@ export const BackLink = styled(Link)`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: solid 1px rgb(0, 1, 0, 0.24);
   border-radius: 7px;
+  color: black;
+
+  :active {
+    background-color: orange;
+    color: #fff;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
   display: block;
   text-decoration: none;
-  text-align: center;
-  margin: 0 auto;
-
-  &.active {
-    color: orange;
-  }
-`;
-
-export const ItemLink = styled.li`
-  width: 60px;
-  margin-bottom: 10px;
   padding: 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: solid 1px rgb(0, 1, 0, 0.24);
   border-radius: 7px;
+  color: black;
+  margin-bottom: 1em;
+
+  :active {
+    background-color: orange;
+    color: #fff;
+  }
 `;
 
 export const ListLink = styled.ul`
