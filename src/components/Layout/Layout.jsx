@@ -18,7 +18,6 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </Main>
-      <footer></footer>
     </>
   );
 };
